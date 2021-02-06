@@ -1,0 +1,1 @@
+{"piechart":{"datasets":[{"backgroundColor":["#D33F49","#77BA99","#23FFD9","#27B299","#831A49"],"data":[0,0,0,0,0,0,0,0,0]}],"labels":["GET","POST","HEAD","PUT","DELETE","CONNECT","OPTIONS","TRACE","PATCH"]},"hint":"The labels of this chart have been computed using temporally sensitive data"}
