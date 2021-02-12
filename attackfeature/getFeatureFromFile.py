@@ -139,7 +139,3 @@ class DDoSGridFeatures:
 
 
         
-jsonPath = 'D:/vsproject/secgrid/data/analysis/'
-attackId = '7bcb9e6b370349eb573dde4457f8a0b3a0ac6436322d3e235a5b8fa62e8c28c3'
-r = ['get_top_Device(jsonPath, attackId)']
-print(str(r))
