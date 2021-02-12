@@ -46,7 +46,47 @@ def getLossDuration(conn, start_time, end_time):
     cursor = conn.cursor()
     # SELECT  i.IncidentCategory, Average(i.LossDuration,) from AttackInformation i LEFT JOIN AttackFeatures f ON i.AttackID = f.AttackID WHERE f.StartTimeStamp>=? and f.StartTimeStamp<=? GROUP BY i.IncidentCategory
 
-    loss_duration = cursor.execute("""SELECT  i.IncidentCategory, Average(i.LossDuration,) from AttackInformation i \
+    loss_duration = cursor.execute("""SELECT  i.IncidentCategory, AVG(i.LossDuration,) from AttackInformation i \
         LEFT JOIN AttackFeatures f ON i.AttackID = f.AttackID WHERE f.StartTimeStamp>=? and f.StartTimeStamp<=? \
         GROUP BY i.IncidentCategory;""", (start_time, end_time)).fetchall()
     return loss_duration
+
+
+def getLossProperty(conn, start_time, end_time):
+    cursor = conn.cursor()
+    loss_property = cursor.execute("""SELECT  i.LossProperty,  i.IncidentCategory,COUNT(i.AttackID) from AttackInformation i \
+        LEFT JOIN AttackFeatures f ON i.AttackID = f.AttackID WHERE f.StartTimeStamp>=? and f.StartTimeStamp<=? \
+        GROUP BY  i.LossProperty,  i.IncidentCategory;""", (start_time, end_time)).fetchall()
+    return loss_property
+
+
+def getAttackerInfrastructure(conn, start_time, end_time):
+    cursor = conn.cursor()
+    attacker_infrastructure = cursor.execute("""SELECT  i.AttackerInfrastructure,  i.IncidentCategory,COUNT(i.AttackID) from AttackInformation i \
+        LEFT JOIN AttackFeatures f ON i.AttackID = f.AttackID WHERE f.StartTimeStamp>=? and f.StartTimeStamp<=? \
+        GROUP BY  i.AttackerInfrastructure,  i.IncidentCategory;""", (start_time, end_time)).fetchall()
+    return attacker_infrastructure
+
+
+def getThreatActorType(conn, start_time, end_time):
+    cursor = conn.cursor()
+    threat_actor_type = cursor.execute("""SELECT  i.ThreatActorType,  i.IncidentCategory,COUNT(i.AttackID) from AttackInformation i \
+        LEFT JOIN AttackFeatures f ON i.AttackID = f.AttackID WHERE f.StartTimeStamp>=? and f.StartTimeStamp<=? \
+        GROUP BY  i.ThreatActorType,  i.IncidentCategory;""", (start_time, end_time)).fetchall()
+    return threat_actor_type
+
+
+def getAttackerTool(conn, start_time, end_time):
+    cursor = conn.cursor()
+    attacker_tool = cursor.execute("""SELECT  i.AttackerTool,  i.IncidentCategory,COUNT(i.AttackID) from AttackInformation i \
+        LEFT JOIN AttackFeatures f ON i.AttackID = f.AttackID WHERE f.StartTimeStamp>=? and f.StartTimeStamp<=? \
+        GROUP BY  i.AttackerTool,  i.IncidentCategory;""", (start_time, end_time)).fetchall()
+    return attacker_tool
+
+
+def getMalwareType(conn, start_time, end_time):
+    cursor = conn.cursor()
+    malware_type = cursor.execute("""SELECT  i.MalwareType,  i.IncidentCategory,COUNT(i.AttackID) from AttackInformation i \
+        LEFT JOIN AttackFeatures f ON i.AttackID = f.AttackID WHERE f.StartTimeStamp>=? and f.StartTimeStamp<=? \
+        GROUP BY  i.MalwareType,  i.IncidentCategory;""", (start_time, end_time)).fetchall()
+    return malware_type
