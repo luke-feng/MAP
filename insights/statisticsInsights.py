@@ -238,3 +238,17 @@ def getMalwareType(conn, start_time, end_time):
         LEFT JOIN AttackFeatures f ON i.AttackID = f.AttackID WHERE f.StartTimeStamp>=? and f.StartTimeStamp<=? \
         GROUP BY  i.MalwareType,  i.IncidentCategory;""", (start_time, end_time)).fetchall()
     return malware_type
+
+def getROSI(conn, start_time, end_time):
+    cursor = conn.cursor()
+    rosi = cursor.execute("""SELECT  i.IncidentCategory, i.MeasureDescription,  i.ROSI from Measures i \
+        LEFT JOIN IncidentCategory f ON i.IncidentCategory = f.IncidentCategoryID \ 
+        GROUP BY  i.IncidentCategory, i.MeasureDescription;""").fetchall()
+    return rosi
+
+def getNPV(conn, start_time, end_time):
+    cursor = conn.cursor()
+    npv = cursor.execute("""SELECT  i.IncidentCategory, i.MeasureDescription,  i.NPV from Measures i \
+        LEFT JOIN IncidentCategory f ON i.IncidentCategory = f.IncidentCategoryID \ 
+        GROUP BY  i.IncidentCategory, i.MeasureDescription;""").fetchall()
+    return npv
