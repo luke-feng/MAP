@@ -50,7 +50,7 @@ passport.deserializeUser(async function(id, done) {
     done(null, user);
 });
 passport.use('provider', new OAuth2Strategy({
-    authorizationURL: process.env.OAUTH2_AUTHORIZE || 'http://130.60.156.181:4000/o/authorize',
+    authorizationURL: process.env.OAUTH2_AUTHORIZE || 'http://localhost:4000/o/authorize',
     tokenURL: process.env.OAUTH2_TOKEN || 'http://localhost:4000/o/token/',
     clientID: process.env.OAUTH2_CLIENTID || 'WadXCpA2EdzvHQNJWdEp5GvVqsCYxkF4gsJ72gtt',
     clientSecret: process.env.OAUTH2_CLIENTSECRET || 'Pnk2WxCR3rtUeHjvnmQgXFd5PkLvhpDvw0T6mluRrqasmNGB8M3km7SEi1ygBDaFyiWbD4QQda09cyYy9cnwJBupEFdfeFCk01haCUeVluFv0JpomskA1DXmPXSszQCg',

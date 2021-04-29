@@ -46,7 +46,7 @@ function logStart () {
 }
 
 function allowCORS (req, res, next) {
-  const clientAppOrigin = req.get('origin') || 'http://130.60.156.181:8081'
+  const clientAppOrigin = req.get('origin') || 'http://localhost:8081'
   res.header('Access-Control-Allow-Origin', clientAppOrigin)
   res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE,HEAD,OPTIONS')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
