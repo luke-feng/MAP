@@ -56,7 +56,7 @@ or by using the scripts(recommended)
 ```bash
 ./scripts/start_dev_server.sh
 ```
-It will automaticly listen on `8000` port. And you can change the technical details in `api/scripts/start_dev_server.sh`, like the `port` and `CLIENT_APP_ORIGIN`.
+It will automaticly listen on `8080` port. And you can change the technical details in `api/scripts/start_dev_server.sh`, like the `port` and `CLIENT_APP_ORIGIN`.
 
 
 ## ddosgrid
