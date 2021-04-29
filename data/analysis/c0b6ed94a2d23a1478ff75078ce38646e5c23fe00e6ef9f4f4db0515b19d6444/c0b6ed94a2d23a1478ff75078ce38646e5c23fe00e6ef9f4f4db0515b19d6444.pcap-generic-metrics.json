@@ -1,1 +1,0 @@
-{"start":1535373032,"end":1535373153,"duration":121,"nrOfIPpackets":23,"attackSizeInBytes":1752,"attackBandwidthInBps":14.479338842975206,"avgPacketSize":76.17391304347827,"nrOfIPv4Packets":23,"nrOfIPv6Packets":0,"nrOfSrcIps":4,"nrOfDstIps":1,"nrOfSrcPorts":7,"nrOfDstPorts":1,"nrOfUDPPackets":0,"nrOfTCPPackets":23,"udpToTcpRatio":0,"nrOfHTTP":0,"nrOfICMP":0}

@@ -1,1 +1,0 @@
-{"topTwenty":[{"count":15148,"port":1038,"servicename":"mtqp"}],"metrics":{"total_dst_port":1},"barchart":{"labels":[1038],"datasets":[{"label":"Count","backgroundColor":"#f87979","data":[15148]}]}}
