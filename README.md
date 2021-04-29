@@ -1,5 +1,5 @@
 # SHINE
-> a collaborative system for sharing information and economic impacts of cyberattacks
+> A collaborative system for sharing information and economic impacts of cyberattacks
 
 ## Table of Contents
 
