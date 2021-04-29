@@ -1,0 +1,1 @@
+{"piechart":{"datasets":[{"backgroundColor":["#77BA99","#FFBA49","#D33F49","#23FFD9","#392061","#27B299","#831A49"],"data":[0,0,0,0,0,0,0]}],"labels":["Echo Request","Echo Reply","Destination Unreachable","Redirect","Router Advertisement","Router Solicitation","Time Exceeded"]},"hint":"The labels of this chart have been computed using temporally sensitive data"}

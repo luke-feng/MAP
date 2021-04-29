@@ -1,0 +1,1 @@
+{"topTwenty":[{"count":8028,"port":741,"servicename":"netgw"}],"metrics":{"total_dst_port":1},"barchart":{"labels":[741],"datasets":[{"label":"Count","backgroundColor":"#f87979","data":[8028]}]}}

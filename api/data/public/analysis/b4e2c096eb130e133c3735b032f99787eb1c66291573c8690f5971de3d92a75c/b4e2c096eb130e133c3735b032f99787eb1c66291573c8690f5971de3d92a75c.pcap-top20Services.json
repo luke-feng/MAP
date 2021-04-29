@@ -1,0 +1,1 @@
+{"topTwenty":[{"count":16179,"port":706,"servicename":"silc"}],"metrics":{"total_dst_port":1},"barchart":{"labels":[706],"datasets":[{"label":"Count","backgroundColor":"#f87979","data":[16179]}]}}
