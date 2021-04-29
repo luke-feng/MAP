@@ -1,5 +1,5 @@
 # SHINE
-> A tool for analysis and visualization of DDoS attacks from PCAP files
+> a collaborative system for sharing information and economic impacts of cyberattacks
 
 ## Table of Contents
 
