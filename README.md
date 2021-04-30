@@ -31,14 +31,16 @@ This project consist of two parts:
    * The `organization` application is used to handle organization related data and provide users with options.
    * The `sector` application is used to handle sector related information and provide options as well.
    * The `user_info` application is used to process the user related information.
-   And within each application, there are six python files been used to make sure the system functioning as designed.
+
+And within each application, there are six python files been used to make sure the system functioning as designed.
    * `admin.py` is related to the settings of Django admin site.
    * `app.py` is where the application configuration metadata for an application being stored.
    * `model.py` is the place where data models are defined matching with the tables in the database.
    * `serializers.py` is the place to define serializers for data models which are reponsible for data validation and conversion.
    * `urls.py` is where the URLs configurations being set to dispatch requests to appropriate methods for processing.
    * `views.py` is where all the `views` belong to, and each `view` contains concrete implementations of methods to handle requests.
-   The following shows the outline structure of the SHINE system.
+
+The following shows the outline structure of the SHINE system.
    ```bash
       |—— api 
       |—— application
@@ -62,7 +64,9 @@ This project consist of two parts:
       |—— SHINE 
       |—— user_info 
    ```
-   The following applications and programs must be installed on the target machine before the installation. 
+
+The following applications and programs must be installed on the target machine before the installation. 
+```bash
       * Node.js
       * npm
       * git
@@ -71,6 +75,7 @@ This project consist of two parts:
       * Django 3
       * libpcap
       * SSH Client
+```
 
 # Front End
 
@@ -132,7 +137,7 @@ pip install django-filter
 pip install django-smart-selects
 pip install django-cors-headers
 ```
-If you would like to install other packages, please do not forget to add them to the `INSTALLED\_APP` list inside the `settings.py` file.
+If you would like to install other packages, please do not forget to add them to the `INSTALLED_APP` list inside the `settings.py` file.
 Configure the path
 For this step, you need have your server IP address and the port number that provides service for the DDoSGrid system in hand. Fine the hidden file `.env.production`, open the file and locate yourself to the line that sets `VUE_APP_APIBASEURL` and `VUE_APP_SHINEBASEURL`, and modify it follow the following format.
 ```bash
@@ -141,7 +146,7 @@ VUE_APP_SHINEBASEURL = http://`your server IP address`:`BackEnd service port`
 ```
 
 Add IP address to the white list
-Before you can start run the service, you need to add the server IP address to the trusted white list. To do so, you need go find the file `settings.py` under the SHINE folder. Open the file and find the place where the `ALLOWED\_HOSTS` and `CORS_ORIGIN_WHITELIST`, and append your server IP address to the end of the list.
+Before you can start run the service, you need to add the server IP address to the trusted white list. To do so, you need go find the file `settings.py` under the SHINE folder. Open the file and find the place where the `ALLOWED_HOSTS` and `CORS_ORIGIN_WHITELIST`, and append your server IP address to the end of the list.
 
 
 To start the server, run the following command within the folder that stores the `manage.py` file.
