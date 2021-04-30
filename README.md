@@ -10,8 +10,10 @@
       * [api](#api)
       * [frontend](#frontend)
    * [Back End](#Back-End)
-      * [frontend](#frontend-1)
-      * [API](#api-1)
+      * [Installing required third-party packages](#Installing-required-third-party-packages)
+      * [Configure the path](#Configure-the-path)
+      * [Add IP address to the white list](#Add-IP-address-to-the-white-list)
+      * [Start the server](#Start-the-server)
 
 ## SHINE
 
@@ -139,17 +141,18 @@ pip install django-smart-selects
 pip install django-cors-headers
 ```
 If you would like to install other packages, please do not forget to add them to the `INSTALLED_APP` list inside the `settings.py` file.
-Configure the path
+
+## Configure the path
 For this step, you need have your server IP address and the port number that provides service for the DDoSGrid system in hand. Fine the hidden file `.env.production`, open the file and locate yourself to the line that sets `VUE_APP_APIBASEURL` and `VUE_APP_SHINEBASEURL`, and modify it follow the following format.
 ```bash
 VUE_APP_APIBASEURL = http://`your server IP address`:`DDoSGrid service port`
 VUE_APP_SHINEBASEURL = http://`your server IP address`:`BackEnd service port`
 ```
 
-Add IP address to the white list
+## Add IP address to the white list
 Before you can start run the service, you need to add the server IP address to the trusted white list. To do so, you need go find the file `settings.py` under the SHINE folder. Open the file and find the place where the `ALLOWED_HOSTS` and `CORS_ORIGIN_WHITELIST`, and append your server IP address to the end of the list.
 
-
+## Start the server
 To start the server, run the following command within the folder that stores the `manage.py` file.
 ```bash
 python manage.py runsever
