@@ -34,12 +34,12 @@ This project consist of two parts:
 
    And within each application, there are six python files been used to make sure the system functioning as designed.
    
-      * `admin.py` is related to the settings of Django admin site.
-      * `app.py` is where the application configuration metadata for an application being stored.
-      * `model.py` is the place where data models are defined matching with the tables in the database.
-      * `serializers.py` is the place to define serializers for data models which are reponsible for data validation and conversion.
-      * `urls.py` is where the URLs configurations being set to dispatch requests to appropriate methods for processing.
-      * `views.py` is where all the `views` belong to, and each `view` contains concrete implementations of methods to handle requests.
+   * `admin.py` is related to the settings of Django admin site.
+   * `app.py` is where the application configuration metadata for an application being stored.
+   * `model.py` is the place where data models are defined matching with the tables in the database.
+   * `serializers.py` is the place to define serializers for data models which are reponsible for data validation and conversion.
+   * `urls.py` is where the URLs configurations being set to dispatch requests to appropriate methods for processing.
+   * `views.py` is where all the `views` belong to, and each `view` contains concrete implementations of methods to handle requests.
 
 The following shows the outline structure of the SHINE system.
    ```bash
