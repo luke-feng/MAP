@@ -33,6 +33,7 @@ This project consist of two parts:
    * The `user_info` application is used to process the user related information.
 
    And within each application, there are six python files been used to make sure the system functioning as designed.
+   
       * `admin.py` is related to the settings of Django admin site.
       * `app.py` is where the application configuration metadata for an application being stored.
       * `model.py` is the place where data models are defined matching with the tables in the database.
