@@ -1186,7 +1186,6 @@ class AttackInformationRecordCreate(APIView):
                 malware_type = request_data.pop('malwareType')[0]
 
                 malware_type = malware_type.split(";")
-                print(malware_type)
         else:
                 malware_type = []
 
@@ -1202,7 +1201,6 @@ class AttackInformationRecordCreate(APIView):
                 asset_type = request_data.pop('assetType')[0]
 
                 asset_type = asset_type.split(";")
-                print(type(asset_type))
         else:
                 asset_type = []
 
