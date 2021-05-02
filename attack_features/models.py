@@ -4,10 +4,6 @@ from django.core.exceptions import ValidationError
 
 # Create your models here.
 
-# def validate_date(date):
-#     if date > timezone.now().date():
-#         raise ValidationError("Date cannot exceed today!")
-
 class Attackfeatures(models.Model):
 
     attack_id = models.CharField(db_column='AttackID', primary_key=True, max_length=255)  # Field name made lowercase.
