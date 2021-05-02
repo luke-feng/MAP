@@ -36,7 +36,6 @@ class UserDetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, generics.Ge
         serializer = UserInfoPutSerializer(user, data=request.data)
 
         if serializer.is_valid():
-            print(serializer)
             serializer.save()
 
             return Response(serializer.data)
