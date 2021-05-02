@@ -68,7 +68,6 @@ INSTALLED_APPS = [
     'sector',
     'organization',
     'city_country',
-    # 'asset_type',
     'information_sharing',
     'application',
     'attack_information',
@@ -116,7 +115,6 @@ WSGI_APPLICATION = 'SHINE.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
         'NAME': BASE_DIR / 'Economic.db',
     }
 }
