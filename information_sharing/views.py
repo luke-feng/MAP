@@ -42,16 +42,12 @@ class ImpactratingList(generics.ListAPIView):
     serializer_class = ImpactratingSerializer
     queryset = Impactrating.objects.all()
     Permission_classes = [AllowAny]
-    # filter_backends = (DjangoFilterBackend,)
-    # filter_fields = ('is_valid',)
 
 class IncidentcategoryList(generics.ListAPIView):
 
     serializer_class = IncidentcategorySerializer
     queryset = Incidentcategory.objects.all()
     Permission_classes = [AllowAny]
-    # filter_backends = (DjangoFilterBackend,)
-    # filter_fields = ('is_valid',)
 
 class IncidenteffectList(generics.ListAPIView):
 
@@ -82,8 +78,6 @@ class SecuritycompromiseList(generics.ListAPIView):
     serializer_class = SecuritycompromiseSerializer
     queryset = Securitycompromise.objects.all()
     Permission_classes = [AllowAny]
-    # filter_backends = (DjangoFilterBackend,)
-    # filter_fields = ('is_valid',)
 
 class SystemtypeList(generics.ListAPIView):
 
@@ -114,5 +108,3 @@ class LossdurationList(generics.ListAPIView):
     serializer_class = LossdurationSerializer
     queryset = Lossduration.objects.all()
     Permission_classes = [AllowAny]
-    # filter_backends = (DjangoFilterBackend,)
-    # filter_fields = ('is_valid',)
