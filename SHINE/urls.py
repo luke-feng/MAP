@@ -35,7 +35,6 @@ router = routers.DefaultRouter()
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$', TemplateView.as_view(template_name="index.html")),
-    # url(r'^organization/select_citics/(?P<countryid>\d+)', views.select_citics),
     url(r'^chaining/', include('smart_selects.urls')),
     re_path(r'^sector/', include(sector.urls)),
     re_path(r'^application/', include(application.urls)),
