@@ -16,20 +16,8 @@ class CountryList(generics.ListAPIView):
     queryset = Country.objects.all()
     Permission_classes = [AllowAny]
 
-    # def get(self, request,  *args, **kwargs):
-    #     try:
-    #         country = Country.objects.all()
-    #         serializer = CountrySerializer(country, many=True)
-    #         return Response(serializer.data)
-    #     except Country.DoesNotExist:
-    #         return Response(status=status.HTTP_404_NOT_FOUND)
-
 
 class CityDetail(APIView):
-
-    # serializer_class = CitySerializer
-    # queryset = City.objects.all()
-    # Permission_classes = [AllowAny]
 
     def get(self, request, pk,  *args, **kwargs):
         try:
