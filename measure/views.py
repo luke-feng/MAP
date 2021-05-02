@@ -33,7 +33,6 @@ class MeasureRecordCreate(generics.CreateAPIView):
         time_period = request.data['time_period']
         discount_rate = request.data['discount_rate']
         organization_id = request.data['organization_id']
-        # insurance_amount = request.data['insurance_amount']
 
         total_cost = float(initial_cost) + float(annual_upgrade) + float(annual_maintenance)
 
@@ -93,7 +92,6 @@ class MeasureRecordCreate(generics.CreateAPIView):
                                               'vulnerability_without_measure': vulnerability_without_measure,
                                               'reduced_l1_rate': reduced_l1_rate, 'reduced_l2_rate': reduced_l2_rate,
                                               'discount_rate': discount_rate})
-        # print(connection.queries)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             print(serializer.data)
@@ -131,32 +129,6 @@ class MeasureRecordListByUser(APIView):
             return Response(serializer.data)
         except Measures.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
-
-# class MeasureRecordListByUserAndIncident (APIView):
-#
-#     serializer_class = MeasuresSerializer
-#     permission_classes = [AllowAny]
-#
-#     http_method_names = ['get']
-#     queryset = Measures.objects.all()
-#
-#     def get(self, request, userid, *args, **kwargs):
-#         try:
-#             queryset = Measures.objects.values('incident_category__incident_category') \
-#                        .filter(Q(user_id='x2')) \
-#                        .annotate(total=Count('measure_id'))
-#             serializer = MeasuresSerializer(queryset, many=True)
-#             return Response(serializer.data)
-#         except Measures.DoesNotExist:
-#             return Response(status=status.HTTP_404_NOT_FOUND)
-
-
-
-
-
-
-
 
 
 
