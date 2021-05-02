@@ -19,13 +19,9 @@ class ApplicationList(generics.ListAPIView, generics.CreateAPIView):
 
     def post(self, request, *args, **kwargs):
 
-        # request_data = request.copy()
         request.POST._mutable = True
-        print(request)
-        print(type(request.data))
 
         organization_id = request.data['organization_id']
-        print(organization_id)
 
         try :
             organization = int(organization_id)
@@ -39,9 +35,5 @@ class ApplicationList(generics.ListAPIView, generics.CreateAPIView):
             request.data['organization_id'] = organization_id
             request.data['organization_name'] = organization_name
             serializer = self.get_serializer(data=request.data)
-            print(serializer.is_valid())
-            print(serializer.validated_data)
-            print(serializer.errors)
-            print(request.data)
             return self.create(request, *args, **kwargs)
 
