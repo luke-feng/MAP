@@ -14,9 +14,4 @@ class ApplicationAdmin(admin.ModelAdmin):
     list_filter = ('processed',)
     readonly_fields = ('first_name','last_name', 'email_address','password',)
 
-    # def formfield_for_foreignkey(self, db_field, request, **kwargs):
-    #     if db_field.name == "sector":
-    #         kwargs["queryset"] = Application.objects.filter(is_valid=True)
-    #     return super(ApplicationAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
-
 admin.site.register(Application, ApplicationAdmin)
