@@ -25,7 +25,6 @@ class UserInfoSerializer(serializers.ModelSerializer):
                     'postal_code',
                     'address',
                 ]
-        # fields = '__all__'
 
 class UserInfoPutSerializer(serializers.ModelSerializer):
     class Meta:
