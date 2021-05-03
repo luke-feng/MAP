@@ -59,12 +59,10 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
     this.organizationid = info1.organizationid
-    // console.log(this.organizationid)
     this.filldiscoverymethodData(this.organizationid)
   },
   methods: {
@@ -77,11 +75,9 @@ export default {
     },
     filldiscoverymethodData (event) {
       let url = `${shinebaseurl}/attackinfo/api/YearlyDiscoveryMethod/org/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.discovery_method__discovery_method)
           let data = results.map(a => a.total)
           this.discoverymethodOption = {

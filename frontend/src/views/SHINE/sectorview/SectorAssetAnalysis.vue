@@ -81,12 +81,10 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
     this.defaultsector = info1.sectorid
-    // console.log(this.defaultsector)
     this.fillsystemtypeData(this.defaultsector)
     this.fillassettypeData(this.defaultsector)
   },
@@ -96,12 +94,9 @@ export default {
       this.fillassettypeData(event)
     },
     getSector () {
-      // let data={};
       let url = `${shinebaseurl}/sector/api/sector_list/?is_valid=true`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.SectorOptions = res.data
         }).catch(function (error) {
           console.log(error)
@@ -116,7 +111,6 @@ export default {
     },
     fillassettypeData (event) {
       let url = `${shinebaseurl}/attackinfo/api/YearlyTopAssetType/sector/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data

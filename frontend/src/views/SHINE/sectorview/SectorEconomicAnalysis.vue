@@ -114,12 +114,10 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
     this.defaultsector = info1.sectorid
-    // console.log(this.defaultsector)
     this.fillaveragelossData(this.defaultsector)
     this.fillmonthlylossData(this.defaultsector)
     this.fillshareoflossOption(this.defaultsector)
@@ -133,12 +131,9 @@ export default {
       this.fillsharetypelossOption(event)
     },
     getSector () {
-      // let data={};
       let url = `${shinebaseurl}/sector/api/sector_list/?is_valid=true`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.SectorOptions = res.data
         }).catch(function (error) {
           console.log(error)
@@ -177,11 +172,9 @@ export default {
     },
     fillaveragelossData (event) {
       let url = `${shinebaseurl}/attackinfo/api/YearlyLossSumBySector/`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.sector_id__sector_name)
           let data = results.map(a => a.total_loss)
           this.totallossOption = {

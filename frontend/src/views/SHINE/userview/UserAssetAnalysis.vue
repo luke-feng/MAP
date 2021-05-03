@@ -75,12 +75,10 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
     this.organizationid = info1.organizationid
-    // console.log(this.organizationid)
     this.fillsystemtypeData(this.organizationid)
     this.fillassettypeData(this.organizationid)
   },
@@ -94,7 +92,6 @@ export default {
     },
     fillsystemtypeData (event) {
       let url = `${shinebaseurl}/attackinfo/api/YearlyTopAssetType/org/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data

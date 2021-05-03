@@ -191,12 +191,10 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
     this.defaultsector = info1.sectorid
-    // console.log(this.defaultsector)
     this.fillmonthlylossesData(this.defaultsector)
     this.fillshareoflossData(this.defaultsector)
     this.fillmothlynumberData(this.defaultsector)
@@ -215,12 +213,9 @@ export default {
       this.fillshareofsystemData(event)
     },
     getSector () {
-      // let data={};
       let url = `${shinebaseurl}/sector/api/sector_list/?is_valid=true`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.SectorOptions = res.data
         }).catch(function (error) {
           console.log(error)
@@ -230,16 +225,14 @@ export default {
       console.log('onItemClick')
     },
     onCollapse (c) {
-      // console.log('onCollapse')
+      console.log('onCollapse')
       this.collapsed = c
     },
     fillmonthlylossesData (event) {
       let url = `${shinebaseurl}/attackinfo/api/MonthlyLossSum/sector/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.attack_id__start_time_stamp__month)
           let data = results.map(a => a.total_loss)
           this.monthlylossesOption = {
@@ -550,11 +543,9 @@ export default {
     },
     fillshareofassetData (event) {
       let url = `${shinebaseurl}/attackinfo/api/YearlyTopAssetType/sector/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.asset_type__asset_type).slice(0, 5)
           let data = results.map(a => a.total).slice(0, 5)
           this.shareofassetOption = {

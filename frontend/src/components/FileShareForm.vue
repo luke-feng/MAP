@@ -304,10 +304,8 @@ export default {
     this.getSystemTypeOption()
     this.getAssetTypeOption()
     this.getDiscoveryMethodOption()
-    // console.log(this.dataset)
     let url = `${apibaseurl}/public/${this.dataset.analysisFiles[8].file}`
     this.user = this.dataset.users[0]
-    // console.log(this.user)
     this.featureUrl = `${shinebaseurl}/attackfeatures/api/AttackFeatureRecordCreate/`
     this.informationUrl = `${shinebaseurl}/attackinfo/api/AttackInformationRecordCreate/`
     this.attactId = this.dataset.md5
@@ -315,7 +313,6 @@ export default {
     this.start = this.dataset.metrics.start
     this.end = this.dataset.metrics.end
     this.duration = this.dataset.metrics.duration
-    // console.log(this.start)
     this.nrOfIPpackets = this.dataset.metrics.nrOfIPpackets
     this.attackSizeInBytes = this.dataset.metrics.attackSizeInBytes
     this.attackBandwidthInBps = this.dataset.metrics.attackBandwidthInBps
@@ -334,7 +331,6 @@ export default {
     fetch(url).then(resp => resp.json()).then(json => { this.iPWatchlist = json.piechart.labels })
     this.iPWatchlist = this.getIpwatchList(url)
     this.iPWatchlist = null
-    // console.log(this.iPWatchlist)
   },
   computed: {
     isDefined: function () {
@@ -343,9 +339,7 @@ export default {
   },
   methods: {
     shareInformation () {
-      // this.fetchToAttackFeature(this.featureUrl)
       this.fetchToAttackInformation(this.informationUrl)
-      // this.showSuccess = true
       this.$message({
         message: 'Share Information Success.',
         type: 'success'
@@ -357,168 +351,126 @@ export default {
       this.sector = null
     },
     getSector () {
-      // let data={};
       let url = `${shinebaseurl}/sector/api/sector_list/?is_valid=true`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.SectorOptions = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getImpactRatingOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/ImpactratingList/`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.ImpactRatingOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getIncidentEffectOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/IncidenteffectList/?is_valid=`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.IncidentEffectOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getSecurityCompromiseOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/SecuritycompromiseList/`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.SecurityCompromiseOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getLossDurationOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/LossdurationList/`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.LossDurationOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getLossPropertyOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/LosspropertyList/?is_valid=`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.LossPropertyOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getAttackerInfrastructureOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/AttackerinfrastructureList/?is_valid=`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.AttackerInfrastructureOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getThreatActorTypeOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/ThreatactortypeList/?is_valid=`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.ThreatActorTypeOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getAttackerToolOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/AttackertoolList/?is_valid=`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.AttackerToolOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getMalwareTypeOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/MalwaretypeList/?is_valid=`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.MalwareTypeOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getIncidentCategoryOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/IncidentcategoryList/`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.IncidentCategoryOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getSystemTypeOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/SystemtypeList/?is_valid=`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.SystemTypeOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getAssetTypeOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/AssettypeList/?is_valid=`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.AssetTypeOption = res.data
         }).catch(function (error) {
           console.log(error)
         })
     },
     getDiscoveryMethodOption () {
-      // let data={};
       let url = `${shinebaseurl}/info_share/api/DiscoverymethodList/?is_valid=`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
-          // console.log(res)
           this.DiscoveryMethodOption = res.data
         }).catch(function (error) {
           console.log(error)
@@ -526,10 +478,8 @@ export default {
     },
     selectOrganizationBySectorId (event) {
       if (event !== null && event !== '' && event !== undefined) {
-        // console.log(event)
         this.$axios.get(`${shinebaseurl}/organization/api/org_list/?is_valid=true&sector=` + event)
           .then(response => {
-            // console.log(response)
             this.CompanyOption = response.data
           }).catch(function (error) {
             console.log(error)
@@ -539,15 +489,10 @@ export default {
     fetchToAttackFeature (url) {
       var data = {
         attack_id: this.attactId,
-        // start_time_stamp: this.start,
-        // end_time_stamp: this.end,
-        start_time_stamp: 1594378800,
-        end_time_stamp: 1594378810,
+        start_time_stamp: this.start,
+        end_time_stamp: this.end,
         duration: this.duration
       }
-      // data = JSON.stringify(data)
-      // console.log(data)
-      // console.log(url)
       this.$axios({
         method: 'post',
         url: url,
@@ -559,15 +504,6 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
-      // fetch(url, {
-      //   method: 'POST',
-      //   body: JSON.stringify(data),
-      //   headers: new Headers({
-      //     'Content-Type': 'application/json'
-      //   })
-      // }).then(res => res.json())
-      //   .catch(error => console.error('Error:', error))
-      //   .then(response => console.log('Success:', response))
     },
     getIpwatchList (url) {
       var topIp
@@ -583,8 +519,6 @@ export default {
         organization_id: this.organisation,
         start_time_stamp: this.start,
         end_time_stamp: this.end,
-        // start_time_stamp: 1594378800,
-        // end_time_stamp: 1594378810,
         sector_id: this.sector,
         costofequipmentreplacement: this.costofEquipmentReplacement,
         costofrepair: this.costofRepair,
@@ -636,9 +570,6 @@ export default {
         // nrOfHTTP: this.nrOfHTTP,
         // nrOfICMP: this.nrOfICMP
       }
-      // data = JSON.stringify(data)
-      // console.log(data)
-      // console.log(url)
       this.$axios({
         method: 'post',
         url: url,
@@ -650,19 +581,6 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
-      // this.$message({
-      //   message: 'Save Measure Success.',
-      //   type: 'success'
-      // })
-    //   fetch(url, {
-    //     method: 'POST',
-    //     body: JSON.stringify(data),
-    //     headers: new Headers({
-    //       'Content-Type': 'application/json'
-    //     })
-    //   }).then(res => res.json())
-    //     .catch(error => console.error('Error:', error))
-    //     .then(response => console.log('Success:', response))
     }
   }
 }

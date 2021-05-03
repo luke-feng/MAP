@@ -153,16 +153,12 @@ export default {
       let allUsersUrl = `${shinebaseurl}/userinfo/api/UserList/`
       await this.$axios.get(allUsersUrl)
         .then((res) => {
-          // console.log(res)
           this.allUsers = res.data
-          // console.log(this.allUsers)
         })
         .catch(error => {
           console.log(error)
         })
-      // console.log(this.allUsers)
       var found = this.allUsers.find(element => element === this.userId)
-      // console.log(found)
       let data = {
         userid: this.userId,
         userfirstname: this.firstname,
@@ -192,15 +188,11 @@ export default {
     },
     fillshareoflossdata (event) {
       let url = `${shinebaseurl}/attackinfo/api/AttackTypeLossSum/org/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.incident_category__incident_category)
           let data = results.map(a => a.total_loss)
-          // console.log('fillshareoflossdata')
-          // console.log(data)
           this.shareoflossoptions = {
             legend: {
               display: true
@@ -228,8 +220,6 @@ export default {
           let results = res.data
           let labels = results.map(a => a.incident_category__incident_category)
           let data = results.map(a => a.total)
-          // console.log('fillshareofattackdata')
-          // console.log(data)
           this.shareofattackoptions = {
             legend: {
               display: true
@@ -429,8 +419,6 @@ export default {
           let results = res.data
           let labels = results.map(a => a.attack_id__start_time_stamp__month)
           let data = results.map(a => a.total_loss)
-          // console.log('fillmonthlylossdata')
-          // console.log(data)
           this.monthlylossoptions = {
             scales: {
               yAxes: [{

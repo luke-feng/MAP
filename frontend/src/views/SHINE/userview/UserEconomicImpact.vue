@@ -154,7 +154,6 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
@@ -191,11 +190,9 @@ export default {
     },
     filltableData (event) {
       let url = `${shinebaseurl}/measures/api/MeasureRecordList/` + this.UserID + '/' + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           this.tableData = results
         })
         .catch(error => {
@@ -297,7 +294,6 @@ export default {
           let results = res.data
           let labels = ['Cost of Equipment Replacement', 'Cost of Repair', 'Corporate Income Loss', 'Organization Productive Loss', 'SLA Loss', 'Indirect Loss']
           let data = [results[0].total_coer, results[0].total_cor, results[0].total_col, results[0].total_opl, results[0].total_sla, results[0].total_il]
-          // console.log(data)
           this.sharetypelossOption = {
             responsive: true,
             maintainAspectRatio: false
@@ -320,12 +316,9 @@ export default {
       await this.$axios.get(`${shinebaseurl}/attackinfo/api/overviewIncidentCate/org/` + event)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.incident_category__incident_category)
           let attackdata = results.map(a => a.total)
-          // console.log(attackdata)
           let lossdata = this.shareoflossData.datasets[0].data
-          // console.log(lossdata)
           let data = []
           for (var i = 0; i < lossdata.length; i++) {
             if (attackdata[i] === 0) {

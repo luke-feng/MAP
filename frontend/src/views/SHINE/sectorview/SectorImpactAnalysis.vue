@@ -126,12 +126,10 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
     this.defaultsector = info1.sectorid
-    // console.log(this.defaultsector)
     this.fillimpactratingData(this.defaultsector)
     this.fillincidenteffectData(this.defaultsector)
     this.fillsecuritycompromiseData(this.defaultsector)
@@ -147,9 +145,7 @@ export default {
       this.filllossdurationData(event)
     },
     getSector () {
-      // let data={};
       let url = `${shinebaseurl}/sector/api/sector_list/?is_valid=true`
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           // console.log(res)
@@ -167,11 +163,9 @@ export default {
     },
     fillimpactratingData (event) {
       let url = `${shinebaseurl}/attackinfo/api/MonthlyImpactRating/sector/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let resno = []
           let resmi = []
           let resma = []
@@ -206,12 +200,6 @@ export default {
                 break
             }
           }
-          // console.log('resno')
-          // console.log(resno)
-          // console.log('resmi')
-          // console.log(resmi)
-          // console.log('resma')
-          // console.log(resma)
           let labels = Array.from(new Set(results.map(a => a.attack_id__start_time_stamp__month)))
           let labelsno = Array.from(new Set(resno.map(a => a.attack_id__start_time_stamp__month)))
           let labelsmi = Array.from(new Set(resmi.map(a => a.attack_id__start_time_stamp__month)))
@@ -223,14 +211,6 @@ export default {
           let datama = resma.map(a => a.total)
           let datamo = resmo.map(a => a.total)
           let dataun = resun.map(a => a.total)
-          // console.log('labels')
-          // console.log(labels)
-          // console.log('labelsno')
-          // console.log(labelsno)
-          // console.log('labelsmi')
-          // console.log(labelsmi)
-          // console.log('labelsma')
-          // console.log(labelsma)
           for (var j = 0; j < labels.length; j++) {
             if (labelsno[j] !== labels[j]) {
               datano.splice(j, 0, 0)
@@ -253,8 +233,6 @@ export default {
               labelsun.splice(j, 0, 0)
             }
           }
-          // console.log(labels)
-          // console.log(datano)
           this.impactratingOption = {
             scales: {
               yAxes: [{
@@ -329,7 +307,6 @@ export default {
       this.$axios.get(`${shinebaseurl}/attackinfo/api/YearlyIncidentEffectTimes/sector/` + event)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.incident_effect__incident_effect)
           let data = results.map(a => a.total)
           this.incidenteffectOption = {
@@ -358,7 +335,6 @@ export default {
       this.$axios.get(`${shinebaseurl}/attackinfo/api/MonthlySecurityCompromise/sector/` + event)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let resno = []
           let resmi = []
           let resma = []
@@ -387,12 +363,6 @@ export default {
                 break
             }
           }
-          // console.log('resno')
-          // console.log(resno)
-          // console.log('resmi')
-          // console.log(resmi)
-          // console.log('resma')
-          // console.log(resma)
           let labels = Array.from(new Set(results.map(a => a.attack_id__start_time_stamp__month)))
           let labelsno = Array.from(new Set(resno.map(a => a.attack_id__start_time_stamp__month)))
           let labelsmi = Array.from(new Set(resmi.map(a => a.attack_id__start_time_stamp__month)))
@@ -402,14 +372,6 @@ export default {
           let datami = resmi.map(a => a.total)
           let datama = resma.map(a => a.total)
           let dataun = resun.map(a => a.total)
-          // console.log('labels')
-          // console.log(labels)
-          // console.log('labelsno')
-          // console.log(labelsno)
-          // console.log('labelsmi')
-          // console.log(labelsmi)
-          // console.log('labelsma')
-          // console.log(labelsma)
           for (var j = 0; j < labels.length; j++) {
             if (labelsno[j] !== labels[j]) {
               datano.splice(j, 0, 0)
@@ -428,8 +390,6 @@ export default {
               labelsun.splice(j, 0, 0)
             }
           }
-          // console.log(datano)
-          // console.log(datami)
           this.securitycompromiseOption = {
             scales: {
               yAxes: [{

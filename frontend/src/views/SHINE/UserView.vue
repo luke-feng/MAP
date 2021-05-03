@@ -187,12 +187,10 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
     this.organizationid = info1.organizationid
-    // console.log(this.organizationid)
     this.fillmonthlylossesData(this.organizationid)
     await this.fillshareoflossData(this.organizationid)
     this.fillmothlynumberData(this.organizationid)
@@ -203,10 +201,10 @@ export default {
   },
   methods: {
     onItemClick (e, i) {
-      // console.log('onItemClick')
+      console.log('onItemClick')
     },
     onCollapse (c) {
-      // console.log('onCollapse')
+      console.log('onCollapse')
       this.collapsed = c
     },
     fillaverageoflossData (event) {
@@ -240,11 +238,9 @@ export default {
     },
     fillmonthlylossesData (event) {
       let url = `${shinebaseurl}/attackinfo/api/MonthlyLossSum/org/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.attack_id__start_time_stamp__month)
           let data = results.map(a => a.total_loss)
           this.monthlylossesOption = {
@@ -527,11 +523,9 @@ export default {
     },
     fillshareofassetData (event) {
       let url = `${shinebaseurl}/attackinfo/api/YearlyTopAssetType/org/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.asset_type__asset_type).slice(0, 5)
           let data = results.map(a => a.total).slice(0, 5)
           this.shareofassetOption = {

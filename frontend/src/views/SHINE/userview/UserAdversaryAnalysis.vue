@@ -109,12 +109,10 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
     this.organizationid = info1.organizationid
-    // console.log(this.organizationid)
     this.fillattackerinfrastructureData(this.organizationid)
     this.fillthreatactorData(this.organizationid)
     this.fillattackertoolData(this.organizationid)
@@ -297,8 +295,6 @@ export default {
               }
             ]
           }
-          // console.log('this.attackerinfrastructureData')
-          // console.log(this.attackerinfrastructureData)
         })
         .catch(error => {
           console.log(error)
@@ -472,8 +468,6 @@ export default {
               }
             ]
           }
-          // console.log('this.threatactorData')
-          // console.log(this.threatactorData)
         })
         .catch(error => {
           console.log(error)
@@ -647,8 +641,6 @@ export default {
               }
             ]
           }
-          // console.log('this.attackertoolData')
-          // console.log(this.attackertoolData)
         })
         .catch(error => {
           console.log(error)
@@ -822,8 +814,6 @@ export default {
               }
             ]
           }
-          // console.log('this.malwaretypeData')
-          // console.log(this.malwaretypeData)
         })
         .catch(error => {
           console.log(error)

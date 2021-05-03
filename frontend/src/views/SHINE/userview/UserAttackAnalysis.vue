@@ -137,12 +137,10 @@ export default {
     var res = await fetch(userurl, { credentials: 'include' })
     var info = await res.json()
     this.UserID = info.id
-    // console.log(this.UserID)
     let sectorurl = `${shinebaseurl}/userinfo/api/UserDetail/` + this.UserID
     var res1 = await fetch(sectorurl)
     var info1 = await res1.json()
     this.organizationid = info1.organizationid
-    // console.log(this.organizationid)
     this.fillmaliciousemailData(this.organizationid)
     this.fillipwatchlistData(this.organizationid)
     this.fillfilehashData(this.organizationid)
@@ -160,11 +158,9 @@ export default {
     },
     fillmaliciousemailData (event) {
       let url = `${shinebaseurl}/attackinfo/api/YearlyTopMaliciousEmailWatchlist/org/` + event
-      // console.log(url)
       this.$axios.get(url)
         .then((res) => {
           let results = res.data
-          // console.log(results)
           let labels = results.map(a => a.watchlist)
           let data = results.map(a => a.times)
           this.maliciousemailOption = {
