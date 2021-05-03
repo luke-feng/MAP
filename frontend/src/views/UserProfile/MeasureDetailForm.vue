@@ -142,40 +142,6 @@ export default {
     close () {
       this.$emit('stateChanged')
     },
-    // changeMeasure () {
-    //   let data = {
-    //     organization_id: this.OrganizationID,
-    //     user_id: this.UserID,
-    //     incident_category: this.IncidentCategory,
-    //     measure_type_id: this.MeasureTypeID,
-    //     measure_description: this.MeasureDescription,
-    //     time_period: this.TimePeriod,
-    //     initial_cost: this.InitialCost,
-    //     annual_upgrade: this.AnnualUpgrade,
-    //     annual_maintenance: this.AnnualMaintenance,
-    //     reduced_vulnerability: this.ReducedVulnerability,
-    //     reduced_l1_rate: this.ReducedL1Rate,
-    //     reduced_l2_rate: this.ReducedL2Rate,
-    //     vulnerability_without_measure: this.VulnerabilityWithoutMeasure,
-    //     discount_rate: this.DiscountRate
-    //   }
-    //   this.$axios({
-    //     method: 'post',
-    //     url: `${shinebaseurl}/measures/api/MeasureRecordCreate/`,
-    //     data: this.$qs.stringify(data) }
-    //   )
-    //     .then((res) => {
-    //       console.log(res)
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error)
-    //     })
-    //   this.$message({
-    //     message: 'Save Measure Success.',
-    //     type: 'success'
-    //   })
-    //   this.$emit('stateChanged')
-    // },
     async getMeasureTypeOptions () {
       await this.$axios.get(`${shinebaseurl}/measuretype/api/MeasuretypeList/`)
         .then((res) => {

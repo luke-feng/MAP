@@ -270,13 +270,9 @@ export default {
         })
     },
     selectCityByCountryId (event) {
-      // let A = event.target.value
-      // console.log(event)
       if (event !== null && event !== '' && event !== undefined) {
-        // console.log(event)
         this.$axios.get(`${shinebaseurl}/city_country/api/city_list/?countryid=` + event)
           .then(response => {
-            // console.log(response)
             this.CityOption = response.data
           }).catch(function (error) {
             console.log(error)
@@ -287,7 +283,6 @@ export default {
       // let data={};
       this.$axios.get(`${shinebaseurl}/sector/api/sector_list/?is_valid=true`)
         .then((res) => {
-          // console.log(res)
           this.SectorOptions = res.data
         }).catch(function (error) {
           console.log(error)
@@ -295,10 +290,8 @@ export default {
     },
     selectOrganizationBySectorId (event) {
       if (event !== null && event !== '' && event !== undefined) {
-        // console.log(event)
         this.$axios.get(`${shinebaseurl}/organization/api/org_list/?is_valid=true&sector=` + event)
           .then(response => {
-            // console.log(response)
             this.CompanyOption = response.data
           }).catch(function (error) {
             console.log(error)
@@ -309,14 +302,11 @@ export default {
       this.fetchDataSets()
     },
     fetchDataSets: async function fetchDataSets () {
-      // todo
       try {
         let url = `${shinebaseurl}/measures/api/MeasureRecordListByUser/` + this.userId
-        // console.log(url)
         await this.$axios.get(url)
           .then(response => {
             this.measures = response.data
-            // console.log(this.measures)
           }).catch(function (error) {
             console.log(error)
           })
@@ -328,7 +318,6 @@ export default {
   watch: {
     showMeasureAdd: async function (newVal, oldVal) {
       if (!newVal) {
-        // refresh list
         this.fetchDataSets()
       }
     }
