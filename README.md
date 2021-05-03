@@ -1,6 +1,8 @@
 # SHINE
 > A collaborative system for sharing information and economic impacts of cyberattacks
 
+[![SHINE](https://res.cloudinary.com/marcomontalbano/image/upload/v1620053813/video_to_markdown/images/youtube--xXJiNNBJznY-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=xXJiNNBJznY "SHINE")
+
 ## Table of Contents
 
    * [SHINE](#SHINE)
