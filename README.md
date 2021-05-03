@@ -114,6 +114,8 @@ or by using the scripts(recommended)
 ```bash
 ./scripts/start_dev_server.sh
 ```
+You may need to change  `CLIENT_APP_ORIGIN `, ` OAUTH2_SUCCESS_FORWARD`, `OAUTH2_CALLBACK ` to your own IP and service port in the `api/scripts/start_dev_server.sh` script file.
+
 It will automaticly listen on `8080` port. And you can change the technical details in `api/scripts/start_dev_server.sh`, like the `port` and `CLIENT_APP_ORIGIN`.
 
 
@@ -139,6 +141,8 @@ pip install djangorestframework
 pip install django-filter
 pip install django-smart-selects
 pip install django-cors-headers
+pip install django-unixtimestampfield
+pip install geonamescache
 ```
 If you would like to install other packages, please do not forget to add them to the `INSTALLED_APP` list inside the `settings.py` file.
 
