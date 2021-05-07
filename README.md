@@ -16,6 +16,7 @@
       * [Configure the path](#Configure-the-path)
       * [Add IP address to the white list](#Add-IP-address-to-the-white-list)
       * [Start the server](#Start-the-server)
+   * [Reference](#Reference)
 
 ## SHINE
 
@@ -165,5 +166,5 @@ python manage.py runsever
 ```
 And the terminal will tell you the which port is currently carrying the service.
 
-## Reference:
+# Reference
 * Chao Feng, Qiaowen Wang, Xianxiao Xu: SHINE: a Collaborative System for Sharing Insights and Information of Economic Impacts of Cyberattacks; Universität Zürich, Communication Systems Group, Department of Informatics, Zürich, Switzerland, May 2021, URL: https://files.ifi.uzh.ch/CSG/staff/franco/extern/theses/MAP-SHINE.pdf.
