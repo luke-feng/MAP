@@ -164,3 +164,6 @@ To start the server, run the following command within the folder that stores the
 python manage.py runsever
 ```
 And the terminal will tell you the which port is currently carrying the service.
+
+Reference:
+Chao Feng, Qiaowen Wang, Xianxiao Xu: SHINE: a Collaborative System for Sharing Insights and Information of Economic Impacts of Cyberattacks; Universität Zürich, Communication Systems Group, Department of Informatics, Zürich, Switzerland, May 2021, URL: https://files.ifi.uzh.ch/CSG/staff/franco/extern/theses/MAP-SHINE.pdf.
